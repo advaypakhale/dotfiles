@@ -87,6 +87,11 @@ local options = {
             select = true,
         }),
 
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        }),
+
         ["<Down>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
