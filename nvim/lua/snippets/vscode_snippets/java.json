@@ -1,0 +1,36 @@
+{
+  "Java CP Setup": {
+      "prefix": ["java-competitive-programming", "jcp", "javacp"],
+      "body": [
+        "import java.util.*;",
+        "import java.io.*;",
+        "",
+        "public class ${1:problemname} {",
+        "    public static void main(String[] args) throws IOException{",
+        "        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));",
+        "        PrintWriter pw = new PrintWriter(System.out);",
+        "",
+        "        $0",
+        "",
+        "        pw.flush();",
+        "    }",
+        "}"
+      ],
+      "description": "Java CP Setup"
+  },
+  "Java CP Pair": {
+    "prefix": "paircp",
+    "body": [
+      "class Pair {",
+      "    public Long i;",
+      "    public Long j;",
+      "",
+      "    public Pair(Long i, Long j) {",
+      "        this.i = i;",
+      "        this.j = j;",
+      "    }",
+      "}"
+    ],
+    "description": "Java CP Pair"
+  }
+}
