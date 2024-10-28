@@ -4,7 +4,7 @@ local options = {
         c = { "clang-format" },
         cpp = { "clang-format" },
         -- go = { "gofumpt", "goimports-reviser", "golines" },
-        python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     },
 
     formatters = {
@@ -43,20 +43,20 @@ local options = {
             },
         },
         -- Python
-        black = {
-            prepend_args = {
-                "--fast",
-                "--line-length",
-                "80",
-            },
-        },
-
-        isort = {
-            prepend_args = {
-                "--profile",
-                "black",
-            },
-        },
+        -- black = {
+        --     prepend_args = {
+        --         "--fast",
+        --         "--line-length",
+        --         "80",
+        --     },
+        -- },
+        --
+        -- isort = {
+        --     prepend_args = {
+        --         "--profile",
+        --         "black",
+        --     },
+        -- },
     },
 
     format_on_save = {
@@ -66,4 +66,4 @@ local options = {
     },
 }
 
-require("conform").setup(options)
+return options

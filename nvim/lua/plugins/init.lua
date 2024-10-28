@@ -1,4 +1,17 @@
+vim.g.vscode_snippets_path = vim.fn.stdpath("config")
+    .. "/lua/snippets/vscode_snippets"
+vim.g.snipmate_snippets_path = vim.fn.stdpath("config")
+    .. "/lua/snippets/snipmate_snippets"
+vim.g.lua_snippets_path = vim.fn.stdpath("config")
+    .. "/lua/snippets/lua_snippets"
+
 return {
+    {
+        "stevearc/conform.nvim",
+        event = "BufWritePre", -- uncomment for format on save
+        opts = require("configs.conform"),
+    },
+
     {
         "hrsh7th/nvim-cmp",
         opts = function()
@@ -47,14 +60,6 @@ return {
         dependencies = { "nvim-lint" },
         config = function()
             require("configs.mason-lint")
-        end,
-    },
-
-    {
-        "stevearc/conform.nvim",
-        event = "BufWritePre",
-        config = function()
-            require("configs.conform")
         end,
     },
 
