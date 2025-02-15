@@ -20,16 +20,24 @@
   ],
   "description": "Java CP Setup"
 },
-"Java CP Pair": {
-  "prefix": "paircp",
+"Java IntegerPair": {
+  "prefix": "intpair",
   "body": [
     "class Pair implements Comparable<Pair> {",
-    "    public Long i;",
-    "    public Long j;",
+    "    public Integer i;",
+    "    public Integer j;",
     "",
-    "    public Pair (Long i, Long j) {",
+    "    public Pair(Integer i, Integer j) {",
     "        this.i = i;",
     "        this.j = j;",
+    "    }",
+    "",
+    "    public Integer first() {",
+    "        return this.i;",
+    "    }",
+    "",
+    "    public Integer second() {",
+    "        return this.j;",
     "    }",
     "",
     "    @Override",
@@ -39,11 +47,11 @@
     "",
     "    @Override",
     "    public int compareTo(Pair y) {",
-    "      return this.j.compareTo(y.j);",
+    "        int x = this.i.compareTo(y.i);",
+    "        return x != 0 ? x : this.j.compareTo(y.j);",
     "    }",
-    "}",
-    ""
+    "}"
   ],
-  "description": "Java CP Pair"
+  "description": "Java IntegerPair"
 }
 }
