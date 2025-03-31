@@ -83,55 +83,43 @@ return {
                     -- Jump to the definition of the word under your cursor.
                     --  This is where a variable was first declared, or where a function is defined, etc.
                     --  To jump back, press <C-t>.
-                    map(
-                        "gd",
-                        require("telescope.builtin").lsp_definitions,
-                        "[G]oto [D]efinition"
-                    )
+                    map("<leader>cd", function()
+                        Snacks.picker.lsp_definitions()
+                    end, "goto [d]efinition")
 
                     -- Find references for the word under your cursor.
-                    map(
-                        "gr",
-                        require("telescope.builtin").lsp_references,
-                        "[G]oto [R]eferences"
-                    )
+                    map("<leader>cr", function()
+                        Snacks.picker.lsp_references()
+                    end, "goto [r]eferences")
 
                     -- Jump to the implementation of the word under your cursor.
                     --  Useful when your language has ways of declaring types without an actual implementation.
-                    map(
-                        "gI",
-                        require("telescope.builtin").lsp_implementations,
-                        "[G]oto [I]mplementation"
-                    )
+                    map("<leader>ci", function()
+                        Snacks.picker.lsp_implementations()
+                    end, "goto [i]mplementation")
 
                     -- Jump to the type of the word under your cursor.
                     --  Useful when you're not sure what type a variable is and you want to see
                     --  the definition of its *type*, not where it was *defined*.
-                    map(
-                        "<leader>D",
-                        require("telescope.builtin").lsp_type_definitions,
-                        "Type [D]efinition"
-                    )
+                    map("<leader>ct", function()
+                        Snacks.picker.lsp_type_definitions()
+                    end, "[t]ype definition")
 
                     -- Fuzzy find all the symbols in your current document.
                     --  Symbols are things like variables, functions, types, etc.
-                    map(
-                        "<leader>ds",
-                        require("telescope.builtin").lsp_document_symbols,
-                        "[D]ocument [S]ymbols"
-                    )
+                    map("<leader>cs", function()
+                        Snacks.picker.lsp_symbols()
+                    end, "find all [s]ymbols")
 
                     -- Fuzzy find all the symbols in your current workspace.
                     --  Similar to document symbols, except searches over your entire project.
-                    map(
-                        "<leader>ws",
-                        require("telescope.builtin").lsp_dynamic_workspace_symbols,
-                        "[W]orkspace [S]ymbols"
-                    )
+                    map("<leader>cp", function()
+                        Snacks.picker.lsp_dynamic_workspace_symbols()
+                    end, "find all symbols in [p]roject")
 
                     -- Rename the variable under your cursor.
                     --  Most Language Servers support renaming across files, etc.
-                    map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+                    map("<leader>cR", vim.lsp.buf.rename, "[R]ename")
 
                     -- Execute a code action, usually your cursor needs to be on top of an error
                     -- or a suggestion from your LSP for this to activate.
@@ -144,7 +132,11 @@ return {
 
                     -- WARN: This is not Goto Definition, this is Goto Declaration.
                     --  For example, in C this would take you to the header.
-                    map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                    map(
+                        "<leader>cD",
+                        vim.lsp.buf.declaration,
+                        "goto [d]eclaration"
+                    )
 
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.

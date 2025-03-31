@@ -108,11 +108,17 @@ return {
                     -- ["<Tab>"] = cmp.mapping.confirm { select = true },
                     ["<CR>"] = cmp.mapping.confirm { select = false },
                     ["<Tab>"] = cmp.mapping(function(fallback)
-                        local copilot = require "copilot.suggestion"
+                        -- local copilot = require "copilot.suggestion"
 
-                        if copilot.is_visible() then
-                            copilot.accept()
-                        elseif cmp.visible() then
+                        -- if copilot.is_visible() then
+                        --     copilot.accept()
+                        -- elseif cmp.visible() then
+                        --     cmp.confirm { select = true }
+                        -- elseif luasnip.expand_or_locally_jumpable() then
+                        --     luasnip.expand_or_jump()
+                        -- else
+                        --     fallback()
+                        if cmp.visible() then
                             cmp.confirm { select = true }
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
