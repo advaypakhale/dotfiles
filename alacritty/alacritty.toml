@@ -30,7 +30,7 @@ y = 0
 
 [window]
 decorations = "Buttonless"
-opacity = 0.85
+opacity = 0.95
 blur = true
 
 title = "Terminal"
