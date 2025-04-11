@@ -1,9 +1,14 @@
 return {
     {
         "folke/tokyonight.nvim",
-        opts = {},
-        init = function()
-            vim.cmd.hi "Comment gui=none"
+        priority = 10000,
+        config = function()
+            require("tokyonight").setup {}
+
+            -- Load the colorscheme here.
+            -- Like many other themes, this one has different styles, and you could load
+            -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+            vim.cmd.colorscheme "tokyonight-night"
         end,
     },
 }
