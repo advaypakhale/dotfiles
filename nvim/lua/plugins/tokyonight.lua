@@ -4,11 +4,11 @@ return {
         priority = 10000,
         config = function()
             require("tokyonight").setup {
-                transparent = true,
-                styles = {
-                    sidebars = "transparent",
-                    floats = "transparent",
-                },
+                -- transparent = true,
+                -- styles = {
+                --     sidebars = "transparent",
+                --     floats = "transparent",
+                -- },
             }
 
             -- Load the colorscheme here.
