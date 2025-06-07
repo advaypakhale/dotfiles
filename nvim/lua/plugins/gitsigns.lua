@@ -78,7 +78,7 @@ return {
                 map(
                     "n",
                     "<leader>ghu",
-                    gitsigns.undo_stage_hunk,
+                    gitsigns.stage_hunk,
                     { desc = "git [u]ndo stage hunk" }
                 )
                 map(
@@ -118,7 +118,7 @@ return {
                 map(
                     "n",
                     "<leader>tD",
-                    gitsigns.toggle_deleted,
+                    gitsigns.preview_hunk_inline,
                     { desc = "[T]oggle git show [D]eleted" }
                 )
             end,
