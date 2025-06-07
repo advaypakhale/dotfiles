@@ -48,13 +48,6 @@ return {
                 desc = "Grep",
             },
             {
-                "<leader>:",
-                function()
-                    Snacks.picker.command_history()
-                end,
-                desc = "Command History",
-            },
-            {
                 "<leader>n",
                 function()
                     Snacks.picker.notifications()
@@ -112,13 +105,6 @@ return {
                 desc = "Recent",
             },
             -- Grep
-            {
-                "<leader>sb",
-                function()
-                    Snacks.picker.lines()
-                end,
-                desc = "Buffer Lines",
-            },
             {
                 "<leader>sB",
                 function()
@@ -317,13 +303,6 @@ return {
                     Snacks.scratch.select()
                 end,
                 desc = "Select Scratch Buffer",
-            },
-            {
-                "<leader>n",
-                function()
-                    Snacks.notifier.show_history()
-                end,
-                desc = "Notification History",
             },
             {
                 "<leader>bd",
