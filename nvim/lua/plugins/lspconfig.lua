@@ -337,6 +337,17 @@ return {
                         require("lspconfig")[server_name].setup(server)
                     end,
                 },
+                jdtls = function()
+                    require("java").setup {
+                        -- custom nvim-java settings here
+                    }
+
+                    require("lspconfig").jdtls.setup {
+                        -- custom jdtls settings here
+                        capabilities = capabilities,
+                        filetypes = { "java" },
+                    }
+                end,
             }
         end,
     },
