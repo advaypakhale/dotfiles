@@ -13,7 +13,7 @@ These are personal configurations, meant to only work on my personal machines. T
    - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
    - **[ripgrep](https://github.com/BurntSushi/ripgrep)**
    - **[fd](https://github.com/sharkdp/fd)**
-4. Start neovim with `nvim`. You should see most packages and LSPs start to download automatically. If you do run into any errors, just check the log and see what dependencies you are missing, then install them..
+4. Start neovim with `nvim`. You should see most packages and LSPs start to download automatically. If you do run into any errors, just check the log and see what dependencies you are missing, then install them.
 5. To ensure that all packages and LSPs have been installed, close neovim and open it again. Then, type in `:Mason` and `:Lazy` and see if you have any errors.
 
 ## Acknowledgements
