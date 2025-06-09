@@ -136,6 +136,11 @@ return {
                         Snacks.picker.lsp_type_definitions()
                     end, "[G]oto [T]ype Definition")
 
+                    --- Show documentation
+                    map("K", function()
+                        vim.lsp.buf.hover { border = "rounded" }
+                    end, "Show LSP Documentation")
+
                     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                     ---@param client vim.lsp.Client
                     ---@param method vim.lsp.protocol.Method
@@ -179,7 +184,6 @@ return {
                                 callback = vim.lsp.buf.document_highlight,
                             }
                         )
-
                         vim.api.nvim_create_autocmd(
                             { "CursorMoved", "CursorMovedI" },
                             {

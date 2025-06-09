@@ -128,7 +128,22 @@ return {
             completion = {
                 -- By default, you may press `<c-space>` to show the documentation.
                 -- Optionally, set `auto_show = true` to show the documentation after a delay.
-                documentation = { auto_show = false, auto_show_delay_ms = 500 },
+                menu = {
+                    auto_show = true,
+                    -- border = "rounded", -- places too much focus on the completions
+                    --     -- nvim-cmp style menu
+                    -- draw = {
+                    --     columns = {
+                    --         { "label", "label_description", gap = 1 },
+                    --         { "kind_icon", "kind", gap = 1 },
+                    --     },
+                    -- }, -- doesn't add much information
+                },
+                documentation = {
+                    auto_show = false, -- quite intrusive if set to true
+                    auto_show_delay_ms = 500,
+                    -- window = { border = "rounded" },
+                },
             },
 
             sources = {
