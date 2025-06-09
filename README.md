@@ -7,7 +7,7 @@ These are personal configurations, meant to only work on my personal machines. T
 ## Neovim
 
 1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md).
-2. Clone this directory, and copy the `nvim` subdirectory to `~/.config/nvim`
+2. Clone this directory, and copy the `nvim` subdirectory to `~/.config/nvim`.
 3. Install dependencies (non-exhaustive, install the rest if you run into errors):
    - **[Go](https://go.dev/doc/install)**
    - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
