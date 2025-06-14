@@ -5,7 +5,13 @@ This repository contains many of my configurations for common tools that I use, 
 These are personal configurations, meant to only work on my personal machines. They are not configured for general use. If you want to proceed with using them, please be aware that things might break and require some head bashing to work. Nonetheless, there are some barebones neovim setup instructions if you do want to use my configuration.
 
 ## GNU Stow
-The repository uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink management. The repository structure is set up to have the tool name as a top-level directory:
+The repository uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink management.
+
+### Quickstart
+Run `stow <tool> -t ~` to set up the necessary symlinks for `tool`.
+
+### Structure
+The repository structure is set up to have the tool name as a top-level directory:
 
 ```
 dotfiles/
@@ -17,14 +23,12 @@ dotfiles/
             └── ...
 ```
 
-So running `stow nvim`, for instance, from within the `dotfiles` directory will create create symlinks in `$HOME/.config/nvim/` that point back to `dotfiles/nvim/.config/nvim/`.
-
-In general, run `stow <tool>` to set up the necessary symlinks for `tool`.
+`stow` by default sets up symlinks relative to the parent directory. So running `stow nvim`, for instance, from within the `dotfiles` directory will create create symlinks in `../.config/nvim/` that point back to `./nvim/.config/nvim/`. If the `dotfiles` repository has been cloned within `$HOME`, then all is well. Otherwise, you have to explicitly specify `$HOME` as the target via `stow nvim -t ~`.
 
 ## Neovim
 
 1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md). Installing from pre-built binaries is best.
-2. Clone this repository, and run `stow nvim` from within the repository.
+2. Clone this repository, and run `stow nvim -t ~` from within the repository.
 3. Install dependencies (non-exhaustive, install the rest if you run into errors):
    - **[Go](https://go.dev/doc/install)**
    - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
