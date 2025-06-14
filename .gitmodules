@@ -1,0 +1,21 @@
+[submodule "alacritty/.config/alacritty/themes"]
+	path = alacritty/.config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
+[submodule "tmux/.config/tmux/plugins/tmux"]
+	path = tmux/.config/tmux/plugins/tmux
+	url = https://git::@github.com/catppuccin/tmux
+[submodule "tmux/.config/tmux/plugins/tmux-sensible"]
+	path = tmux/.config/tmux/plugins/tmux-sensible
+	url = https://git::@github.com/tmux-plugins/tmux-sensible
+[submodule "tmux/.config/tmux/plugins/tmux-tokyo-night"]
+	path = tmux/.config/tmux/plugins/tmux-tokyo-night
+	url = https://git::@github.com/fabioluciano/tmux-tokyo-night
+[submodule "tmux/.config/tmux/plugins/tmux-yank"]
+	path = tmux/.config/tmux/plugins/tmux-yank
+	url = https://git::@github.com/tmux-plugins/tmux-yank
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux/.config/tmux/plugins/vim-tmux-navigator"]
+	path = tmux/.config/tmux/plugins/vim-tmux-navigator
+	url = https://git::@github.com/christoomey/vim-tmux-navigator
