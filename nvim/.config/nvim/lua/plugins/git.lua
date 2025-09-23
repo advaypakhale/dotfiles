@@ -4,6 +4,36 @@
 --
 -- See `:help gitsigns` to understand what the configuration keys do
 return {
+    -- Diff viewer and merge tool
+    {
+        "sindrets/diffview.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        -- cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+        -- keys = {
+        --     { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Open diff view" },
+        --     {
+        --         "<leader>gh",
+        --         "<cmd>DiffviewFileHistory %<cr>",
+        --         desc = "Open file history",
+        --     },
+        --     {
+        --         "<leader>gB",
+        --         "<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>",
+        --         desc = "Review branch changes",
+        --     },
+        -- },
+        opts = {
+            enhanced_diff_hl = true,
+            use_icons = true,
+            -- view = {
+            --     default = { layout = "diff2_horizontal" },
+            --     merge_tool = {
+            --         layout = "diff4_mixed",
+            --         disable_diagnostics = true,
+            --     },
+            -- },
+        },
+    },
     { -- Adds git related signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
         opts = {
