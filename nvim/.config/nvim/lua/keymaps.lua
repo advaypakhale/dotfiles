@@ -70,4 +70,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Restore cursor position on file open
+vim.api.nvim_create_autocmd("BufReadPost", {
+    desc = "Restore cursor position on file open",
+    group = vim.api.nvim_create_augroup(
+        "kickstart-restore-cursor",
+        { clear = true }
+    ),
+    pattern = "*",
+    callback = function()
+        local line = vim.fn.line "'\""
+        if line > 1 and line <= vim.fn.line "$" then
+            vim.cmd "normal! g'\""
+        end
+    end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
