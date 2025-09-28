@@ -60,21 +60,10 @@ return {
 
             -- Document existing key chains
             spec = {
-                { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-                {
-                    "<leader>d",
-                    group = "[D]ebug",
-                    icon = { icon = " ", color = "red" },
-                },
-                {
-                    "<leader>f",
-                    group = "[F]ind",
-                    icon = { icon = "󰈞 ", color = "green" },
-                },
                 {
                     "<leader>b",
-                    group = "[B]uffer",
-                    icon = { icon = " ", color = "green" },
+                    group = "De[b]ug",
+                    icon = { icon = " ", color = "red" },
                 },
                 {
                     "<leader>s",
@@ -97,6 +86,7 @@ return {
                     mode = { "n", "v" },
                     icon = { icon = " " },
                 },
+                { "gr", group = "LSP Actions", mode = { "n" } },
             },
         },
     },

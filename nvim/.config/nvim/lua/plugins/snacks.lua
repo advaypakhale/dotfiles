@@ -34,13 +34,6 @@ return {
                 desc = "Smart Find Files",
             },
             {
-                "<leader>bb",
-                function()
-                    Snacks.picker.buffers()
-                end,
-                desc = "Buffers",
-            },
-            {
                 "<leader><leader>",
                 function()
                     Snacks.picker.grep()
@@ -60,49 +53,6 @@ return {
                     Snacks.explorer()
                 end,
                 desc = "File Explorer",
-            },
-            -- find
-            {
-                "<leader>fb",
-                function()
-                    Snacks.picker.buffers()
-                end,
-                desc = "Buffers",
-            },
-            {
-                "<leader>fc",
-                function()
-                    Snacks.picker.files { cwd = vim.fn.stdpath "config" }
-                end,
-                desc = "Find Config File",
-            },
-            {
-                "<leader>ff",
-                function()
-                    Snacks.picker.files()
-                end,
-                desc = "Find Files",
-            },
-            {
-                "<leader>fg",
-                function()
-                    Snacks.picker.git_files()
-                end,
-                desc = "Find Git Files",
-            },
-            {
-                "<leader>fp",
-                function()
-                    Snacks.picker.projects()
-                end,
-                desc = "Projects",
-            },
-            {
-                "<leader>fr",
-                function()
-                    Snacks.picker.recent()
-                end,
-                desc = "Recent",
             },
             -- Grep
             {
@@ -152,16 +102,16 @@ return {
             {
                 "<leader>sb",
                 function()
-                    Snacks.picker.lines()
+                    Snacks.picker.buffers()
                 end,
-                desc = "Buffer Lines",
+                desc = "Buffers",
             },
             {
                 "<leader>sc",
                 function()
-                    Snacks.picker.command_history()
+                    Snacks.picker.files { cwd = vim.fn.stdpath "config" }
                 end,
-                desc = "Command History",
+                desc = "Find Config File",
             },
             {
                 "<leader>sC",
@@ -243,9 +193,9 @@ return {
             {
                 "<leader>sp",
                 function()
-                    Snacks.picker.lazy()
+                    Snacks.picker.projects()
                 end,
-                desc = "Search for Plugin Spec",
+                desc = "Projects",
             },
             {
                 "<leader>sq",
@@ -269,7 +219,7 @@ return {
                 desc = "Undo History",
             },
             {
-                "<leader>uC",
+                "<leader>tC",
                 function()
                     Snacks.picker.colorschemes()
                 end,
@@ -277,46 +227,18 @@ return {
             },
             -- Other
             {
-                "<leader>z",
+                "<leader>tz",
                 function()
                     Snacks.zen()
                 end,
                 desc = "Toggle Zen Mode",
             },
             {
-                "<leader>Z",
+                "<leader>tZ",
                 function()
                     Snacks.zen.zoom()
                 end,
                 desc = "Toggle Zoom",
-            },
-            {
-                "<leader>,",
-                function()
-                    Snacks.scratch()
-                end,
-                desc = "Toggle Scratch Buffer",
-            },
-            {
-                "<leader>S",
-                function()
-                    Snacks.scratch.select()
-                end,
-                desc = "Select Scratch Buffer",
-            },
-            {
-                "<leader>bd",
-                function()
-                    Snacks.bufdelete()
-                end,
-                desc = "Delete Buffer",
-            },
-            {
-                "<leader>cR",
-                function()
-                    Snacks.rename.rename_file()
-                end,
-                desc = "Rename File",
             },
             {
                 "<leader>gB",
@@ -334,7 +256,7 @@ return {
                 desc = "Lazygit",
             },
             {
-                "<leader>un",
+                "<leader>tn",
                 function()
                     Snacks.notifier.hide()
                 end,
@@ -387,33 +309,33 @@ return {
                     -- Create some toggle mappings
                     Snacks.toggle
                         .option("spell", { name = "Spelling" })
-                        :map "<leader>us"
+                        :map "<leader>ts"
                     Snacks.toggle
                         .option("wrap", { name = "Wrap" })
-                        :map "<leader>uw"
+                        :map "<leader>tw"
                     Snacks.toggle
                         .option("relativenumber", { name = "Relative Number" })
-                        :map "<leader>uL"
-                    Snacks.toggle.diagnostics():map "<leader>ud"
-                    Snacks.toggle.line_number():map "<leader>ul"
+                        :map "<leader>tL"
+                    Snacks.toggle.diagnostics():map "<leader>td"
+                    Snacks.toggle.line_number():map "<leader>tl"
                     Snacks.toggle
                         .option("conceallevel", {
                             off = 0,
                             on = vim.o.conceallevel > 0 and vim.o.conceallevel
                                 or 2,
                         })
-                        :map "<leader>uc"
-                    Snacks.toggle.treesitter():map "<leader>uT"
+                        :map "<leader>tc"
+                    Snacks.toggle.treesitter():map "<leader>tT"
                     Snacks.toggle
                         .option("background", {
                             off = "light",
                             on = "dark",
                             name = "Dark Background",
                         })
-                        :map "<leader>ub"
-                    Snacks.toggle.inlay_hints():map "<leader>uh"
-                    Snacks.toggle.indent():map "<leader>ug"
-                    Snacks.toggle.dim():map "<leader>uD"
+                        :map "<leader>tb"
+                    Snacks.toggle.inlay_hints():map "<leader>th"
+                    Snacks.toggle.indent():map "<leader>tg"
+                    Snacks.toggle.dim():map "<leader>tD"
                 end,
             })
         end,
