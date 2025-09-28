@@ -10,7 +10,11 @@ return {
                 -- have a well standardized coding style. You can add additional
                 -- languages here or re-enable it for the disabled ones.
                 -- local disable_filetypes = { c = true, cpp = true }
-                local disable_filetypes = {}
+
+                local disable_filetypes = {
+                    python = true, -- disable auto-format via conform for python since we configure ruff LSP to do linting + formatting + organising imports directly
+                }
+
                 if disable_filetypes[vim.bo[bufnr].filetype] then
                     return nil
                 else
@@ -28,7 +32,8 @@ return {
                 lua = { "stylua" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
-                python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+                -- use ruff lsp for formatting instead
+                -- python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
                 sh = { "shfmt" },
                 yaml = { "yamlfmt" },
             },
