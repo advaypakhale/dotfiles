@@ -40,15 +40,10 @@ return {
             formatters = {
                 -- C & C++
                 ["clang-format"] = {
-                    -- prepend_args = {
-                    --     "-style={ \
-                    --     IndentWidth: 4, \
-                    --     TabWidth: 4, \
-                    --     UseTab: Never, \
-                    --     AccessModifierOffset: 0, \
-                    --     IndentAccessModifiers: true, \
-                    --     PackConstructorInitializers: Never}",
-                    -- },
+                    prepend_args = {
+                        "--style=file",
+                        "--fallback-style=Google",
+                    },
                 },
                 -- Lua
                 stylua = {
