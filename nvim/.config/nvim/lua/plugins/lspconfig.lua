@@ -411,12 +411,12 @@ return {
             require("mason-lspconfig").setup {
                 ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
                 automatic_enable = true, -- automatically run vim.lsp.enable() for all servers that are installed via Mason
-                -- jdtls = function()
-                --     require("java").setup {
-                --         -- custom nvim-java settings here
-                --     }
-                --     vim.lsp.enable "jdtls"
-                -- end,
+                jdtls = function()
+                    require("java").setup {
+                        -- custom nvim-java settings here
+                    }
+                    vim.lsp.enable "jdtls"
+                end,
             }
 
             -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
