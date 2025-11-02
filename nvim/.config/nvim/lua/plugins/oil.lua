@@ -58,7 +58,7 @@ return {
                 function()
                     _G.toggle_oil_split()
                 end,
-                desc = "Toggle Oil in left split",
+                desc = "Toggle Oil",
             },
         },
         dependencies = { "nvim-tree/nvim-web-devicons" },
