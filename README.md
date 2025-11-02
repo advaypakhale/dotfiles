@@ -27,6 +27,7 @@ dotfiles/
 
 ## Neovim
 
+0. Try the (untested) [install script](./nvim/.config/nvim/install_nvim.sh).
 1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md). Installing from pre-built binaries is best.
 2. Clone this repository, and run `stow nvim -t ~` from within the repository.
 3. Install dependencies (non-exhaustive, install the rest if you run into errors):
