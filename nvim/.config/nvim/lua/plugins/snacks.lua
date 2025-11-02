@@ -6,8 +6,8 @@ return {
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
-            dashboard = { example = "doom" },
-            explorer = { enabled = true },
+            -- dashboard = { example = "doom" },
+            -- explorer = { enabled = true },
             input = { enabled = true },
             notifier = {
                 enabled = true,
@@ -47,13 +47,13 @@ return {
                 end,
                 desc = "Notification History",
             },
-            {
-                "\\",
-                function()
-                    Snacks.explorer()
-                end,
-                desc = "File Explorer",
-            },
+            -- {
+            --     "\\",
+            --     function()
+            --         Snacks.explorer()
+            --     end,
+            --     desc = "File Explorer",
+            -- },
             -- Grep
             {
                 "<leader>sB",
