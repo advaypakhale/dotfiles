@@ -24,16 +24,62 @@ return {
                 keymaps = {
                     ["<BS>"] = { "actions.parent", mode = "n" },
                     ["<C-c>"] = false,
-                },
-                float = {
-                    padding = 2,
-                    max_width = 0,
-                    max_height = 0,
+                    ["<CR>"] = {
+                        callback = function()
+                            local oil = require "oil"
+                            local entry = oil.get_cursor_entry()
+
+                            if entry and entry.type == "file" then
+                                -- Get the full path
+                                local dir = oil.get_current_dir()
+                                local filepath = dir .. entry.name
+
+                                -- Find target window (source window or rightmost non-oil window)
+                                local target_win = _G.oil_source_win
+                                if
+                                    not target_win
+                                    or not vim.api.nvim_win_is_valid(target_win)
+                                then
+                                    -- Find rightmost non-oil window
+                                    local wins = vim.api.nvim_list_wins()
+                                    for _, win in ipairs(wins) do
+                                        local buf =
+                                            vim.api.nvim_win_get_buf(win)
+                                        if
+                                            vim.bo[buf].filetype ~= "oil"
+                                            and win ~= _G.oil_win_id
+                                        then
+                                            target_win = win
+                                        end
+                                    end
+                                end
+
+                                if
+                                    target_win
+                                    and vim.api.nvim_win_is_valid(target_win)
+                                then
+                                    vim.api.nvim_set_current_win(target_win)
+                                    vim.cmd(
+                                        "edit " .. vim.fn.fnameescape(filepath)
+                                    )
+                                else
+                                    -- Fallback: use default behavior
+                                    oil.select()
+                                end
+                            else
+                                -- For directories, use default behavior
+                                oil.select()
+                            end
+                        end,
+                        desc = "Open in target window",
+                        mode = "n",
+                    },
                 },
             }
 
-            -- Global variable to track Oil window
+            -- Global variable to track windows
             _G.oil_win_id = nil
+            _G.oil_source_win = nil
 
             -- Function to toggle Oil in left vertical split
             function _G.toggle_oil_split()
@@ -45,6 +91,9 @@ return {
                     vim.api.nvim_win_close(_G.oil_win_id, false)
                     _G.oil_win_id = nil
                 else
+                    -- Store the window we're toggling from
+                    _G.oil_source_win = vim.api.nvim_get_current_win()
+
                     local width = math.floor(vim.o.columns * 0.33)
                     vim.cmd("topleft " .. width .. "vsplit")
                     _G.oil_win_id = vim.api.nvim_get_current_win()
