@@ -29,15 +29,13 @@ x = 0
 y = 0
 
 [window]
-decorations = "Buttonless"
+decorations = "None"
 opacity = 0.95
 blur = true
 
-title = "Terminal"
-
 [window.padding]
-x = 15 
-y = 15
+x = 25 
+y = 25
 
 [env]
 TERM = "xterm-256color"
