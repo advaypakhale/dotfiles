@@ -53,6 +53,14 @@ vim.keymap.set(
     { desc = "Move focus to the upper window" }
 )
 
+-- Toggle text wrap
+vim.keymap.set(
+    "n",
+    "<leader>tw",
+    "<cmd>set wrap!<CR>",
+    { desc = "Toggle text wrap" }
+)
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

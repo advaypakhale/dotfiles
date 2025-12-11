@@ -62,18 +62,18 @@ return {
             spec = {
                 {
                     "<leader>b",
-                    group = "De[b]ug",
+                    group = "Debug",
                     icon = { icon = " ", color = "red" },
                 },
                 {
                     "<leader>s",
-                    group = "[S]earch",
+                    group = "Search",
                     icon = { icon = " ", color = "green" },
                 },
                 {
                     "<leader>t",
-                    group = "[T]oggle",
-                    icon = { icon = " ", color = "green" },
+                    group = "Toggle",
+                    icon = { icon = "  ", color = "green" },
                 },
                 {
                     "<leader>x",
@@ -82,9 +82,15 @@ return {
                 },
                 {
                     "<leader>g",
-                    group = "[G]it",
+                    group = "Git",
                     mode = { "n", "v" },
                     icon = { icon = " " },
+                },
+                {
+                    "<leader>r",
+                    group = "Remote",
+                    mode = { "n", "v" },
+                    icon = { icon = " " },
                 },
                 { "gr", group = "LSP Actions", mode = { "n" } },
             },
