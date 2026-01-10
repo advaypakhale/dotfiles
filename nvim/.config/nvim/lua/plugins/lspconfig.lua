@@ -264,19 +264,19 @@ return {
                 mason = {
                     ruff = {},
                     -- not good enough yet :(
-                    -- ty = {},
+                    ty = {},
                     -- pyrefly = {},
-                    basedpyright = {
-                        settings = {
-                            basedpyright = {
-                                disableOrganizeImports = true,
-                                -- analysis = {
-                                --     -- Ignore all files for analysis to exclusively use Ruff for linting
-                                --     ignore = { "*" },
-                                -- },
-                            },
-                        },
-                    },
+                    -- basedpyright = {
+                    --     settings = {
+                    --         basedpyright = {
+                    --             disableOrganizeImports = true,
+                    --             -- analysis = {
+                    --             --     -- Ignore all files for analysis to exclusively use Ruff for linting
+                    --             --     ignore = { "*" },
+                    --             -- },
+                    --         },
+                    --     },
+                    -- },
                     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
                     --
                     -- Some languages (like typescript) have entire language plugins that can be useful:
