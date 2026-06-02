@@ -59,6 +59,8 @@ Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm), not git submo
    ```
 3. Start tmux and press `prefix + I` to install the remaining plugins (`prefix + U` to update them later).
 
+The Tokyo Night status bar is a minimal theme vendored from [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) at `tmux/.config/tmux/tokyonight_night.tmux` and `source`d from `tmux.conf` — it is a plain config file, not a plugin, so no install step is needed. To re-sync it with upstream, copy `extras/tmux/tokyonight_night.tmux` from that repo.
+
 ## Acknowledgements
 
 - My neovim configuration is largely ~~stolen~~ adapted from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim).
