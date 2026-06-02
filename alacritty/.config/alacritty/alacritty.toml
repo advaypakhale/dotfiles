@@ -1,23 +1,23 @@
 # $HOME/.config/alacritty/alacritty.toml
 
 [font]
-size = 16
+size = 14
 # builtin_box_drawing = true
 
 [font.normal]
-family = "JetBrainsMonoNL Nerd Font Propo"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Medium"
 
 [font.bold]
-family = "JetBrainsMonoNL Nerd Font Propo"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMonoNL Nerd Font Propo"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Medium Italic"
 
 [font.bold_italic]
-family = "JetBrainsMonoNL Nerd Font Propo"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Bold Italic"
 
 [font.glyph_offset]
