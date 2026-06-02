@@ -27,7 +27,7 @@ dotfiles/
 
 ## Neovim
 
-0. Try the (untested) [install script](./nvim/.config/nvim/install_nvim.sh).
+0. Try the (untested) [install script](./scripts/install_nvim.sh).
 1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md). Installing from pre-built binaries is best.
 2. Clone this repository, and run `stow nvim -t ~` from within the repository.
 3. Install dependencies (non-exhaustive, install the rest if you run into errors):
@@ -43,7 +43,7 @@ dotfiles/
 The terminal config uses JetBrains Mono Nerd Font. Install it with:
 
 ```
-./fonts/install_jetbrains_mono.sh
+./scripts/install_jetbrains_mono.sh
 ```
 
 This downloads the Nerd Font release into `~/.local/share/fonts` and refreshes the font cache (requires `curl` and `unzip`). Re-running it upgrades in place.
