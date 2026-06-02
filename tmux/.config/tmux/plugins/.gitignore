@@ -1,0 +1,3 @@
+# tmux plugins are managed by tpm (prefix + I), not git
+*
+!.gitignore

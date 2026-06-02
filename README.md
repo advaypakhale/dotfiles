@@ -38,6 +38,17 @@ dotfiles/
 4. Start neovim with `nvim`. You should see most packages and LSPs start to download automatically. If you do run into any errors, just check the log and see what dependencies you are missing, then install them.
 5. To ensure that all packages and LSPs have been installed, close neovim and open it again. Then, type in `:Mason` and `:Lazy` and see if you have any errors.
 
+## tmux
+
+Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm), not git submodules. The `plugins/` directory is gitignored.
+
+1. Run `stow tmux -t ~`.
+2. Bootstrap tpm:
+   ```
+   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+   ```
+3. Start tmux and press `prefix + I` to install the remaining plugins (`prefix + U` to update them later).
+
 ## Acknowledgements
 
 - My neovim configuration is largely ~~stolen~~ adapted from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim).
