@@ -263,20 +263,19 @@ return {
                 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
                 mason = {
                     ruff = {},
-                    -- not good enough yet :(
-                    ty = {},
+                    -- ty = {}, -- not good enough yet :(
                     -- pyrefly = {},
-                    -- basedpyright = {
-                    --     settings = {
-                    --         basedpyright = {
-                    --             disableOrganizeImports = true,
-                    --             -- analysis = {
-                    --             --     -- Ignore all files for analysis to exclusively use Ruff for linting
-                    --             --     ignore = { "*" },
-                    --             -- },
-                    --         },
-                    --     },
-                    -- },
+                    basedpyright = {
+                        settings = {
+                            basedpyright = {
+                                disableOrganizeImports = true,
+                                -- analysis = {
+                                --     -- Ignore all files for analysis to exclusively use Ruff for linting
+                                --     ignore = { "*" },
+                                -- },
+                            },
+                        },
+                    },
                     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
                     --
                     -- Some languages (like typescript) have entire language plugins that can be useful:
