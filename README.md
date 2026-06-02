@@ -38,6 +38,16 @@ dotfiles/
 4. Start neovim with `nvim`. You should see most packages and LSPs start to download automatically. If you do run into any errors, just check the log and see what dependencies you are missing, then install them.
 5. To ensure that all packages and LSPs have been installed, close neovim and open it again. Then, type in `:Mason` and `:Lazy` and see if you have any errors.
 
+## Fonts
+
+The terminal config uses JetBrains Mono Nerd Font. Install it with:
+
+```
+./fonts/install_jetbrains_mono.sh
+```
+
+This downloads the Nerd Font release into `~/.local/share/fonts` and refreshes the font cache (requires `curl` and `unzip`). Re-running it upgrades in place.
+
 ## tmux
 
 Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm), not git submodules. The `plugins/` directory is gitignored.
