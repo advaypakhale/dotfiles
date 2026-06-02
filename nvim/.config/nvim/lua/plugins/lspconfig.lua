@@ -300,7 +300,23 @@ return {
                         },
                     },
                     yamlls = {},
-                    clangd = {},
+                    clangd = {
+                        cmd = {
+                            "clangd",
+                            "--background-index",
+                            "--clang-tidy",
+                            "--header-insertion=never",
+                            "--completion-style=detailed",
+                            "--function-arg-placeholders",
+                            "--fallback-style=llvm",
+                            "--pch-storage=memory",
+                            "-j=4",
+                        },
+                        capabilities = { offsetEncoding = { "utf-16" } },
+                        init_options = {
+                            fallbackFlags = { "-std=c++17" },
+                        },
+                    },
                     stylua = {},
                 },
 
