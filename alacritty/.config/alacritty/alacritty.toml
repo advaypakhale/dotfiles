@@ -1,7 +1,7 @@
 # $HOME/.config/alacritty/alacritty.toml
 
 [font]
-size = 14
+size = 12
 # builtin_box_drawing = true
 
 [font.normal]
