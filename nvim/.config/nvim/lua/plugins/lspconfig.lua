@@ -6,8 +6,8 @@ require("mason").setup {}
 
 -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins,
 -- used for completion, annotations and signatures of Neovim apis. It only
--- attaches in Lua buffers. `luvit-meta` (added in the plugin list) supplies the
--- `vim.uv` type definitions it references.
+-- attaches in Lua buffers. `vim.uv` type definitions come from lua_ls's bundled
+-- `${3rd}/luv/library` addon (no separate luvit-meta plugin needed).
 require("lazydev").setup {
     library = {
         -- Load luvit types when the `vim.uv` word is found
@@ -319,12 +319,6 @@ end
 require("mason-lspconfig").setup {
     ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
     automatic_enable = true, -- automatically run vim.lsp.enable() for all servers that are installed via Mason
-    jdtls = function()
-        require("java").setup {
-            -- custom nvim-java settings here
-        }
-        vim.lsp.enable "jdtls"
-    end,
 }
 
 -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason

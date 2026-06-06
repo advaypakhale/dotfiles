@@ -46,8 +46,13 @@ vim.api.nvim_create_autocmd("FileType", {
         -- Highlighting
         vim.treesitter.start(ev.buf)
 
-        -- Indentation (experimental on the main branch)
-        if not no_indent[ft] then
+        -- Indentation (experimental on the main branch). Only set indentexpr
+        -- when the parser actually ships an `indents` query, otherwise fall
+        -- back to Vim's built-in indenting instead of a no-op indentexpr.
+        if
+            not no_indent[ft]
+            and vim.treesitter.query.get(lang, "indents") ~= nil
+        then
             vim.bo[ev.buf].indentexpr =
                 "v:lua.require'nvim-treesitter'.indentexpr()"
         end

@@ -1,15 +1,6 @@
--- Diff viewer and merge tool
-require("diffview").setup {
-    enhanced_diff_hl = true,
-    use_icons = true,
-    -- view = {
-    --     default = { layout = "diff2_horizontal" },
-    --     merge_tool = {
-    --         layout = "diff4_mixed",
-    --         disable_diagnostics = true,
-    --     },
-    -- },
-}
+-- VSCode-style diff viewer / merge tool: command-driven via `:CodeDiff`
+-- (see esmuellert/codediff.nvim). Used with default settings, so no setup call
+-- is needed here.
 
 -- Adds git related signs to the gutter, as well as utilities for managing changes.
 -- See `:help gitsigns` to understand what the configuration keys do.
@@ -86,7 +77,7 @@ require("gitsigns").setup {
             "n",
             "<leader>ghu",
             gitsigns.stage_hunk,
-            { desc = "git [u]ndo stage hunk" }
+            { desc = "git stage h[u]nk (toggle)" }
         )
         map(
             "n",
@@ -126,7 +117,7 @@ require("gitsigns").setup {
             "n",
             "<leader>tD",
             gitsigns.preview_hunk_inline,
-            { desc = "[T]oggle git show [D]eleted" }
+            { desc = "[T]oggle git preview hunk inline" }
         )
     end,
 }

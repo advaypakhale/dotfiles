@@ -74,7 +74,6 @@ vim.pack.add({
     "https://github.com/mason-org/mason-lspconfig.nvim",
     "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
     "https://github.com/folke/lazydev.nvim",
-    "https://github.com/Bilal2453/luvit-meta",
     -- Pinned to the v1 release line: tagged releases ship a prebuilt rust fuzzy
     -- binary (no local cargo build), and v1 does not need the separate blink.lib
     -- that the in-development v2 (`main`) requires.
@@ -90,15 +89,13 @@ vim.pack.add({
 
     -- Git
     "https://github.com/lewis6991/gitsigns.nvim",
-    "https://github.com/sindrets/diffview.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/esmuellert/codediff.nvim", -- VSCode-style diff, `:CodeDiff`
 
     -- Debugging (DAP)
     "https://github.com/mfussenegger/nvim-dap",
     "https://github.com/rcarriga/nvim-dap-ui",
     "https://github.com/nvim-neotest/nvim-nio",
     "https://github.com/jay-babu/mason-nvim-dap.nvim",
-    "https://github.com/leoluz/nvim-dap-go",
 
     -- Misc (no per-plugin config; loading them is enough)
     "https://github.com/advaypakhale/remote.nvim",
