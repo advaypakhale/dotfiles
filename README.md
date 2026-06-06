@@ -31,8 +31,7 @@ dotfiles/
 1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md). Installing from pre-built binaries is best.
 2. Clone this repository, and run `stow nvim -t ~` from within the repository.
 3. Install dependencies (non-exhaustive, install the rest if you run into errors):
-   - **[Go](https://go.dev/doc/install)**
-   - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+   - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)** — needed by the `yaml-language-server` and `markdownlint` Mason packages
    - **[ripgrep](https://github.com/BurntSushi/ripgrep)**
    - **[fd](https://github.com/sharkdp/fd)**
    - **[Rust & cargo](https://rustup.rs/)** — used to build the `tree-sitter` CLI (`cargo install tree-sitter-cli`), which nvim-treesitter's `main` branch needs to compile parsers

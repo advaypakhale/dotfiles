@@ -108,20 +108,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "$HOME/.nvm" || prin
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 nvm install node
 
-# ---- Install go ----
-# go.dev assets: go{ver}.{linux,darwin}-{amd64,arm64}.tar.gz
-case "$PLATFORM" in
-linux) GOOS=linux ;;
-macos) GOOS=darwin ;;
-esac
-case "$CPU" in
-x86_64) GOARCH=amd64 ;;
-arm64) GOARCH=arm64 ;;
-esac
-GO_VER="$(curl -fsSL 'https://go.dev/VERSION?m=text' | head -n1)" # e.g. go1.25.3
-curl -fLO "https://go.dev/dl/${GO_VER}.${GOOS}-${GOARCH}.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "${GO_VER}.${GOOS}-${GOARCH}.tar.gz"
-add_path 'export PATH="$PATH:/usr/local/go/bin"'
-
 echo "Done. Restart your shell or 'source ~/.bashrc' to pick up PATH changes."
