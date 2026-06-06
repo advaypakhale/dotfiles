@@ -90,6 +90,16 @@ curl -fLO "https://github.com/sharkdp/fd/releases/download/${FD_TAG}/fd-${FD_TAG
 tar -xzf "fd-${FD_TAG}-${FD_TRIPLE}.tar.gz"
 install -m 0755 "fd-${FD_TAG}-${FD_TRIPLE}/fd" "$BIN_DIR/fd"
 
+# ---- Install tree-sitter CLI ----
+# nvim-treesitter's `main` branch compiles parsers with it. Built from source:
+# prebuilt binaries (>=0.26.1) need glibc 2.39, too new for e.g. Ubuntu 22.04.
+command -v cargo >/dev/null 2>&1 ||
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# Point bindgen at the C compiler's builtin headers; rquickjs-sys needs stdbool.h
+# and fails when libclang's own resource headers aren't installed.
+BINDGEN_EXTRA_CLANG_ARGS="-I$(cc -print-file-name=include)" \
+	"$HOME/.cargo/bin/cargo" install tree-sitter-cli
+
 # ---- Install nvm and node ----
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 # Match nvm's own XDG-aware NVM_DIR resolution, then source it for this shell.

@@ -1,3 +1,7 @@
+-- Speed up Lua module loading (byte-compilation cache). ~30% faster startup.
+-- Recommended by the vim.pack guide; safe to keep at the very top.
+vim.loader.enable()
+
 -- Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
@@ -12,11 +16,8 @@ require "options"
 -- [[ Basic Keymaps ]]
 require "keymaps"
 
--- [[ Install `lazy.nvim` plugin manager ]]
-require "lazy-bootstrap"
-
--- [[ Configure and install plugins ]]
-require "custom-plugins"
+-- [[ Install and configure plugins ]] (via built-in vim.pack)
+require "plugins"
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
