@@ -26,6 +26,12 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Indentation defaults (guess-indent overrides these per-buffer)
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -71,5 +77,3 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
-
--- vim: ts=2 sts=2 sw=2 et

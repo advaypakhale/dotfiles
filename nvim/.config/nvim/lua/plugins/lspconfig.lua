@@ -173,7 +173,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config {
     severity_sort = true,
+    -- Don't recompute diagnostics while typing in insert mode (this is the
+    -- Neovim default; set explicitly for clarity).
+    update_in_insert = false,
     float = { border = "rounded", source = "if_many" },
+    -- Only underline WARN and above; skip the noisy squiggles under hints/info.
+    underline = { severity = { min = vim.diagnostic.severity.WARN } },
+    -- Auto-open the diagnostic float at the cursor when jumping with `]d`/`[d`,
+    -- so the message shows without a second keystroke. `focus = false` keeps the
+    -- cursor in the buffer.
+    jump = {
+        on_jump = function(_, bufnr)
+            vim.diagnostic.open_float {
+                bufnr = bufnr,
+                scope = "cursor",
+                focus = false,
+            }
+        end,
+    },
     signs = vim.g.have_nerd_font
             and {
                 text = {
@@ -325,5 +342,3 @@ require("mason-lspconfig").setup {
 if not vim.tbl_isempty(servers.others) then
     vim.lsp.enable(vim.tbl_keys(servers.others))
 end
-
--- vim: ts=2 sts=2 sw=2 et
