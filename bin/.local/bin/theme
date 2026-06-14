@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# theme [light|dark|toggle|status] — switch TokyoNight light/dark across
+# Alacritty + Neovim via the shared state file ~/.config/theme/mode.
+set -euo pipefail
+
+STATE_DIR="$HOME/.config/theme"
+STATE_FILE="$STATE_DIR/mode"
+ALA_LINK="$STATE_DIR/alacritty.toml"
+ALA_THEMES="$HOME/.config/alacritty/themes/themes"
+TMUX_LINK="$STATE_DIR/tmux.tmux"
+TMUX_THEMES="$HOME/.config/tmux"
+
+# Theme file per mode (edit to use a different pair).
+declare -A ALA=(  [dark]="tokyo_night.toml"     [light]="tokyo_night_light.toml" )
+declare -A TMUX=( [dark]="tokyonight_night.tmux" [light]="tokyonight_day.tmux" )
+
+mkdir -p "$STATE_DIR"
+current="$(cat "$STATE_FILE" 2>/dev/null || echo dark)"
+
+case "${1:-toggle}" in
+  dark)   mode=dark ;;
+  light)  mode=light ;;
+  toggle) [ "$current" = dark ] && mode=light || mode=dark ;;
+  status) echo "$current"; exit 0 ;;
+  *) echo "usage: theme [light|dark|toggle|status]" >&2; exit 1 ;;
+esac
+
+# Alacritty: flip the imported symlink; live_config_reload repaints it.
+ln -sf "$ALA_THEMES/${ALA[$mode]}" "$ALA_LINK"
+
+# tmux: flip the sourced symlink, then re-source + redraw any running server
+# (tmux caches the screen, so it won't follow Alacritty's repaint on its own).
+ln -sf "$TMUX_THEMES/${TMUX[$mode]}" "$TMUX_LINK"
+if command -v tmux >/dev/null && tmux info &>/dev/null; then
+  tmux source-file "$TMUX_LINK"
+  tmux refresh-client -S 2>/dev/null || true
+fi
+
+# Neovim: truncate in place (stable inode) so its fs-event watcher survives.
+printf '%s\n' "$mode" > "$STATE_FILE"
+
+echo "theme → $mode"

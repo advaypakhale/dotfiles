@@ -59,7 +59,26 @@ Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm), not git submo
    ```
 3. Start tmux and press `prefix + I` to install the remaining plugins (`prefix + U` to update them later).
 
-The Tokyo Night status bar is a minimal theme vendored from [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) at `tmux/.config/tmux/tokyonight_night.tmux` and `source`d from `tmux.conf` — it is a plain config file, not a plugin, so no install step is needed. To re-sync it with upstream, copy `extras/tmux/tokyonight_night.tmux` from that repo.
+The Tokyo Night status bar is a minimal theme vendored from [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) at `tmux/.config/tmux/tokyonight_{night,day}.tmux` — plain config files, not plugins, so no install step is needed. `tmux.conf` sources whichever the shared light/dark state points to (see [Theme switching](#theme-switching-lightdark)). To re-sync with upstream, copy `extras/tmux/tokyonight_{night,day}.tmux` from that repo.
+
+## Theme switching (light/dark)
+
+The `theme` command flips Alacritty, Neovim, and tmux between TokyoNight dark and
+light together, via a shared state file at `~/.config/theme/mode`.
+
+```
+theme          # toggle dark <-> light
+theme light    # force light
+theme dark     # force dark
+theme status   # print current mode
+```
+
+Setup (own stow package): `stow bin -t ~`, then `theme dark` once to create
+`~/.config/theme/`. Alacritty repaints live via `live_config_reload`; Neovim
+watches the state file; tmux is re-sourced and redrawn by the script (it won't
+follow on its own). All switch without a restart. To swap the theme pair, edit
+the references in `bin/.local/bin/theme`, `nvim/.config/nvim/lua/theme.lua`, and
+the vendored `tmux/.config/tmux/tokyonight_*.tmux` files.
 
 ## Acknowledgements
 
