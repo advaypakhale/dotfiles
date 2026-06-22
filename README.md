@@ -48,6 +48,19 @@ The terminal config uses JetBrains Mono Nerd Font. Install it with:
 
 This downloads the Nerd Font release into `~/.local/share/fonts` and refreshes the font cache (requires `curl` and `unzip`). Re-running it upgrades in place.
 
+## TrackPoint (ThinkPad)
+
+Not a stow package; files install to system paths via the script:
+
+```
+./scripts/install_trackpoint.sh
+```
+
+A systemd service and sleep hook apply the hardware knobs (`sensitivity`,
+`speed`, `inertia`) at boot and on resume; `gsettings` sets the pointer accel.
+Edit values in `trackpoint/trackpoint-tune.sh` and `ACCEL` in the install
+script, then re-run it.
+
 ## tmux
 
 Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm), not git submodules. The `plugins/` directory is gitignored.

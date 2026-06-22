@@ -1,0 +1,10 @@
+[Unit]
+Description=Apply TrackPoint tuning (sensitivity/speed/inertia)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/trackpoint-tune.sh
+
+[Install]
+WantedBy=multi-user.target
