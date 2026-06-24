@@ -46,6 +46,14 @@ require("gitsigns").setup {
             end
         end, { desc = "Jump to previous git [c]hange" })
 
+        -- Text object
+        map(
+            { "o", "x" },
+            "ih",
+            gitsigns.select_hunk,
+            { desc = "git select [h]unk" }
+        )
+
         -- Actions
         -- visual mode
         map("v", "<leader>ghs", function()
