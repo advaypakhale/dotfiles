@@ -58,7 +58,6 @@ vim.pack.add({
     "https://github.com/folke/snacks.nvim",
     "https://github.com/nvim-mini/mini.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
-    "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/NMAC427/guess-indent.nvim",
     "https://github.com/stevearc/oil.nvim",

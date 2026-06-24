@@ -25,3 +25,8 @@ require("mini.ai").setup {
 require("mini.surround").setup()
 
 require("mini.pairs").setup()
+
+-- Filetype/glyph icons for lualine, oil, trouble, etc. The mock provides the
+-- nvim-web-devicons API for consumers that request it by name.
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
