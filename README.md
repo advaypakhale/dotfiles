@@ -93,6 +93,15 @@ follow on its own). All switch without a restart. To swap the theme pair, edit
 the references in `bin/.local/bin/theme`, `nvim/.config/nvim/lua/theme.lua`, and
 the vendored `tmux/.config/tmux/tokyonight_*.tmux` files.
 
+## Xournal++
+
+Configuration for [Xournal++](https://xournalpp.github.io/). Run `stow xournalpp -t ~`.
+
+Only the meaningful config is versioned: `settings.xml`, `toolbar.ini`,
+`palette.gpl`, `colornames.ini`, and `print-config.ini`. The transient
+`autosave/` and `windows/` (session state) directories and the empty `plugins/`
+directory stay local and are not tracked.
+
 ## Acknowledgements
 
 - My neovim configuration is largely ~~stolen~~ adapted from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim).
