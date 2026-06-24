@@ -64,8 +64,9 @@ local function try_attach(buf, ft, lang)
         return
     end
 
-    -- Highlighting
-    vim.treesitter.start(buf)
+    -- Highlighting. Pass `lang` explicitly so Neovim doesn't re-derive it from
+    -- the buffer's filetype (filetype and language don't always match).
+    vim.treesitter.start(buf, lang)
 
     -- Indentation (experimental on the main branch). Only set indentexpr
     -- when the parser actually ships an `indents` query, otherwise fall
