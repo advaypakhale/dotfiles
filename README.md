@@ -102,6 +102,15 @@ follow on its own). All switch without a restart. To swap the light half, edit
 two places: the `[light]` entries in `bin/.local/bin/theme` and `schemes.light`
 in `nvim/.config/nvim/lua/theme.lua`.
 
+Claude Code follows along on its own — see [Claude Code](#claude-code).
+
+## Claude Code
+
+`stow claude -t ~` symlinks `~/.claude/settings.json` (shared, non-secret
+settings only — machine-local `settings.local.json` is not tracked). Its `theme`
+is `auto`, which detects the terminal background, so it tracks the switcher
+without being wired into it.
+
 ## Xournal++
 
 Configuration for [Xournal++](https://xournalpp.github.io/). Run `stow xournalpp -t ~`.
