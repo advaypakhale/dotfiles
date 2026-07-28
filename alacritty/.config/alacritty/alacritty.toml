@@ -5,19 +5,19 @@ size = 12
 # builtin_box_drawing = true
 
 [font.normal]
-family = "JetBrainsMonoNL Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Medium"
 
 [font.bold]
-family = "JetBrainsMonoNL Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMonoNL Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Medium Italic"
 
 [font.bold_italic]
-family = "JetBrainsMonoNL Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.glyph_offset]
