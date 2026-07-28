@@ -5,7 +5,8 @@
 local M = {}
 
 local state_file = vim.fn.expand("~/.config/theme/mode")
-local schemes = { dark = "tokyonight-night", light = "tokyonight-day" }
+-- To swap, edit here and in bin/.local/bin/theme.
+local schemes = { dark = "tokyonight-night", light = "basic_light" }
 
 function M.read()
     local f = io.open(state_file, "r")
@@ -19,12 +20,15 @@ end
 
 function M.apply(mode)
     mode = mode or M.read()
+
+    -- Before the colorscheme: plugins read &background as it loads to pick a variant.
+    vim.o.background = mode == "light" and "light" or "dark"
     vim.cmd.colorscheme(schemes[mode] or schemes.dark)
 
-    -- Re-run setup so lualine regenerates its palette for the new background.
+    -- Regenerate lualine's palette for the new colorscheme.
     local ok, lualine = pcall(require, "lualine")
     if ok then
-        lualine.setup({ options = { theme = "tokyonight" } })
+        lualine.setup({ options = { theme = "auto" } })
     end
 end
 

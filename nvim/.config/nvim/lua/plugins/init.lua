@@ -52,6 +52,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 --   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1") }
 vim.pack.add({
     -- Colorscheme (added first so it is available before anything draws).
+    -- Dark only; light is basic_light in colors/ (see lua/theme.lua).
     "https://github.com/folke/tokyonight.nvim",
 
     -- UI / pickers / editing

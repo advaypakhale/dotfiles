@@ -6,13 +6,13 @@ set -euo pipefail
 STATE_DIR="$HOME/.config/theme"
 STATE_FILE="$STATE_DIR/mode"
 ALA_LINK="$STATE_DIR/alacritty.toml"
-ALA_THEMES="$HOME/.config/alacritty/themes/themes"
+ALA_BASE="$HOME/.config/alacritty"
 TMUX_LINK="$STATE_DIR/tmux.tmux"
 TMUX_THEMES="$HOME/.config/tmux"
 
-# Theme file per mode (edit to use a different pair).
-declare -A ALA=(  [dark]="tokyo_night.toml"     [light]="tokyo_night_light.toml" )
-declare -A TMUX=( [dark]="tokyonight_night.tmux" [light]="tokyonight_day.tmux" )
+# Theme per mode. To swap, edit here and schemes.light in nvim's lua/theme.lua.
+declare -A ALA=(  [dark]="themes/tokyo_night.toml" [light]="themes/basic_light.toml" )
+declare -A TMUX=( [dark]="tokyonight_night.tmux"   [light]="basic_light.tmux" )
 
 mkdir -p "$STATE_DIR"
 current="$(cat "$STATE_FILE" 2>/dev/null || echo dark)"
@@ -26,7 +26,7 @@ case "${1:-toggle}" in
 esac
 
 # Alacritty: flip the imported symlink; live_config_reload repaints it.
-ln -sf "$ALA_THEMES/${ALA[$mode]}" "$ALA_LINK"
+ln -sf "$ALA_BASE/${ALA[$mode]}" "$ALA_LINK"
 
 # tmux: flip the sourced symlink, then re-source + redraw any running server
 # (tmux caches the screen, so it won't follow Alacritty's repaint on its own).

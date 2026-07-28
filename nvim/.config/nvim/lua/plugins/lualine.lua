@@ -1,6 +1,7 @@
 require("lualine").setup {
     options = {
-        theme = "tokyonight",
+        -- Follows the active colorscheme; theme.lua re-applies on every switch.
+        theme = "auto",
     },
 }
 

@@ -1,0 +1,33 @@
+# basic_light — high-contrast light theme: black on white, dark saturated
+# primaries, no pastels. Built to stay legible in direct sunlight.
+
+# Default colors
+[colors.primary]
+background = '#ffffff'
+foreground = '#000000'
+
+[colors.cursor]
+text   = '#ffffff'
+cursor = '#000000'
+
+# Normal colors — dark, saturated basic primaries
+[colors.normal]
+black   = '#000000'
+red     = '#b00000'
+green   = '#006400'
+yellow  = '#9a6000'
+blue    = '#0000c0'
+magenta = '#9000a0'
+cyan    = '#007070'
+white   = '#565656'
+
+# Bright colors
+[colors.bright]
+black   = '#808080'
+red     = '#d00000'
+green   = '#008000'
+yellow  = '#b07000'
+blue    = '#0000e0'
+magenta = '#b000c0'
+cyan    = '#008a8a'
+white   = '#000000'
