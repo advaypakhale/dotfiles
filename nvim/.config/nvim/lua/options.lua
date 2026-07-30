@@ -23,6 +23,22 @@ vim.schedule(function()
     vim.o.clipboard = "unnamedplus"
 end)
 
+-- Hosts without a clipboard tool (ssh targets) copy out via OSC 52; reads come
+-- back from the last yank.
+local has_tool = (vim.env.WAYLAND_DISPLAY and vim.fn.executable("wl-copy") == 1)
+    or (vim.env.DISPLAY and (vim.fn.executable("xclip") == 1 or vim.fn.executable("xsel") == 1))
+if not has_tool then
+    local osc52 = require("vim.ui.clipboard.osc52")
+    local function last_yank()
+        return vim.split(vim.fn.getreg('"'), "\n")
+    end
+    vim.g.clipboard = {
+        name = "osc52",
+        copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+        paste = { ["+"] = last_yank, ["*"] = last_yank },
+    }
+end
+
 -- Enable break indent
 vim.o.breakindent = true
 
