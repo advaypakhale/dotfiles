@@ -97,8 +97,10 @@ vim.pack.add({
     "https://github.com/nvim-neotest/nvim-nio",
     "https://github.com/jay-babu/mason-nvim-dap.nvim",
 
-    -- Misc (no per-plugin config; loading them is enough)
+    -- Remote development
     "https://github.com/advaypakhale/remote.nvim",
+
+    -- Misc (no per-plugin config; loading them is enough)
     "https://github.com/lervag/vimtex",
     "https://github.com/christoomey/vim-tmux-navigator",
 })
