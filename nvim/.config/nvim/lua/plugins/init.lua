@@ -1,23 +1,14 @@
 -- [[ Plugins ]]
 --
--- Managed by `vim.pack`, Neovim's built-in plugin manager (requires >= 0.12).
+-- Managed by `vim.pack` (nvim >= 0.12); versions pinned in nvim-pack-lock.json.
+-- Per-plugin config lives in `lua/plugins/<name>.lua`.
 --
--- Best practices followed here (see https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack):
---  * A single `vim.pack.add()` lists every plugin -> acts as a complete blueprint
---    and makes bootstrapping on a fresh machine trivial.
---  * Install/update hooks are registered (via the `PackChanged` autocmd) *before*
---    `vim.pack.add()` runs, so they fire correctly on first install.
---  * Per-plugin configuration lives in its own module under `lua/plugins/<name>.lua`
---    and is `require`d after the add.
---
--- Plugin housekeeping (no manager UI to memorise):
---  * Update:  `:lua vim.pack.update()`   (interactive confirm buffer)
+--  * Update:  `:lua vim.pack.update()`
 --  * Remove:  delete it from the list below, then `:lua vim.pack.del({ 'name' })`
 --  * Health:  `:checkhealth vim.pack`
--- The `nvim-pack-lock.json` lockfile (committed to this repo) pins exact versions.
 
 -- [[ Install / update hooks ]]
--- Registered before `vim.pack.add()` so they run on the very first install too.
+-- Registered before `vim.pack.add()` so they fire on first install too.
 vim.api.nvim_create_autocmd("PackChanged", {
     group = vim.api.nvim_create_augroup("pack-hooks", { clear = true }),
     callback = function(ev)
@@ -47,11 +38,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 -- [[ Plugin list ]]
--- Loaded immediately (no lazy loading by design). The lockfile tracks versions;
--- add a `version` field to any entry to pin a branch/tag/semver range, e.g.
---   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1") }
 vim.pack.add({
-    -- Colorscheme (added first so it is available before anything draws).
+    -- Colorscheme, added first so it is available before anything draws.
     -- Dark only; light is basic_light in colors/ (see lua/theme.lua).
     "https://github.com/folke/tokyonight.nvim",
 
@@ -74,9 +62,7 @@ vim.pack.add({
     "https://github.com/mason-org/mason-lspconfig.nvim",
     "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
     "https://github.com/folke/lazydev.nvim",
-    -- Pinned to the v1 release line: tagged releases ship a prebuilt rust fuzzy
-    -- binary (no local cargo build), and v1 does not need the separate blink.lib
-    -- that the in-development v2 (`main`) requires.
+    -- v1 tags ship a prebuilt rust fuzzy binary, so no local cargo build.
     { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
     "https://github.com/L3MON4D3/LuaSnip",
     "https://github.com/rafamadriz/friendly-snippets",
@@ -106,8 +92,8 @@ vim.pack.add({
 })
 
 -- [[ Per-plugin configuration ]]
--- Order matters only for setup-time dependencies (e.g. mason before its consumers,
--- nvim-lint before mason-nvim-lint), not for plugin availability.
+-- Order matters for setup-time dependencies: mason before its consumers,
+-- nvim-lint before mason-nvim-lint.
 require "plugins.tokyonight"
 require "plugins.snacks"
 require "plugins.mini"
