@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install neovim + tooling from the latest released binaries.
+# Install neovim + tooling from the published binaries.
 # Supports Linux (x86_64 / arm64) and macOS Apple Silicon.
 set -eo pipefail
 
@@ -58,9 +58,12 @@ cd "$TMP"
 add_path 'export PATH="$PATH:$HOME/.local/bin"'
 
 # ---- Install neovim ----
+# Tracks nightly (0.13-dev) for built-in 'autoread' filewatchers. Set
+# NVIM_CHANNEL=stable to go back to the latest release.
+NVIM_CHANNEL="${NVIM_CHANNEL:-nightly}"
 # Asset names: nvim-{linux,macos}-{x86_64,arm64}.tar.gz
 NVIM_DIR="nvim-${PLATFORM}-${CPU}"
-curl -fLO "https://github.com/neovim/neovim/releases/latest/download/${NVIM_DIR}.tar.gz"
+curl -fLO "https://github.com/neovim/neovim/releases/download/${NVIM_CHANNEL}/${NVIM_DIR}.tar.gz"
 # macOS: clear quarantine attrs to avoid an "unknown developer" warning (per nvim release notes).
 [ "$PLATFORM" = macos ] && xattr -c "${NVIM_DIR}.tar.gz"
 sudo rm -rf "/opt/${NVIM_DIR}"
