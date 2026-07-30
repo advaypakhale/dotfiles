@@ -23,9 +23,7 @@ vim.schedule(function()
     vim.o.clipboard = "unnamedplus"
 end)
 
--- Hosts without a clipboard tool (ssh targets) copy out via OSC 52; reads come
--- back from the last yank. tmux gets there on its own via `load-buffer -w`,
--- which also shares the yank as a tmux buffer, but only from 3.2 on.
+-- Copy through the terminal when the host has no clipboard tool and no tmux >= 3.2
 local has_tool = (vim.env.WAYLAND_DISPLAY and vim.fn.executable("wl-copy") == 1)
     or (vim.env.DISPLAY and (vim.fn.executable("xclip") == 1 or vim.fn.executable("xsel") == 1))
 local has_tmux = vim.env.TMUX
