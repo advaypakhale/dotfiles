@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bootstrap:
+    strategy:
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -q && sudo apt-get install -y -q stow
+      - run: curl -fsSL https://mise.run | sh
+      - run: ~/.local/bin/mise run bootstrap
+      - name: rerun must be idempotent
+        run: ~/.local/bin/mise run bootstrap
+      - name: nvim smoke test
+        run: |
+          eval "$(~/.local/bin/mise activate bash --shims)"
+          nvim --version | head -1
+          nvim --headless +q

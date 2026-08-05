@@ -4,11 +4,26 @@ This repository contains many of my configurations for common tools that I use, 
 
 These are personal configurations, meant to only work on my personal machines. They are not configured for general use. If you want to proceed with using them, please be aware that things might break and require some head bashing to work. Nonetheless, there are some barebones neovim setup instructions if you do want to use my configuration.
 
-## GNU Stow
-The repository uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink management.
+## Quickstart
 
-### Quickstart
-Run `stow <tool> -t ~` to set up the necessary symlinks for `tool`.
+```
+sudo apt install stow
+curl https://mise.run | sh
+mise run bootstrap    # server profile: bash, bin, claude, mise, nvim, tmux
+mise run desktop      # adds alacritty, xournalpp, fonts
+```
+
+Both tasks are safe to rerun; run `bootstrap` again after pulling changes.
+It symlinks the config packages with stow, then installs the tools pinned in
+`mise/.config/mise/config.toml`. An unmanaged `~/.bashrc` is moved to
+`~/.bashrc.pre-dotfiles`.
+
+Machine-local shell config goes in `~/.config/shell/local.sh` (untracked).
+
+## GNU Stow
+The repository uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink
+management; the `stow` task in `mise.toml` runs it. To manage a single package
+manually: `stow <tool> -t ~`.
 
 ### Structure
 The repository structure is set up to have the tool name as a top-level directory:
@@ -27,16 +42,13 @@ dotfiles/
 
 ## Neovim
 
-0. Try the (untested) [install script](./scripts/install_nvim.sh).
-1. Download [neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md). Installing from pre-built binaries is best.
-2. Clone this repository, and run `stow nvim -t ~` from within the repository.
-3. Install dependencies (non-exhaustive, install the rest if you run into errors):
-   - **[Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)** — needed by the `yaml-language-server` and `markdownlint` Mason packages
-   - **[ripgrep](https://github.com/BurntSushi/ripgrep)**
-   - **[fd](https://github.com/sharkdp/fd)**
-   - **[Rust & cargo](https://rustup.rs/)** — used to build the `tree-sitter` CLI (`cargo install tree-sitter-cli`), which nvim-treesitter's `main` branch needs to compile parsers
-4. Start neovim with `nvim`. You should see most packages and LSPs start to download automatically. If you do run into any errors, just check the log and see what dependencies you are missing, then install them.
-5. To ensure that all packages and LSPs have been installed, close neovim and open it again. Then, type in `:Mason` and `:checkhealth vim.pack` and see if you have any errors.
+Installed by the bootstrap (nightly channel, via mise) along with its
+dependencies (node for Mason packages, ripgrep, fd, tree-sitter CLI).
+
+1. Start neovim with `nvim`. Packages and LSPs download automatically on first
+   start.
+2. Close and reopen, then check `:Mason` and `:checkhealth vim.pack` for
+   errors.
 
 ## Fonts
 
@@ -65,12 +77,8 @@ script, then re-run it.
 
 Plugins are managed by [tpm](https://github.com/tmux-plugins/tpm). The `plugins/` directory is gitignored.
 
-1. Run `stow tmux -t ~`.
-2. Bootstrap tpm:
-   ```
-   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-   ```
-3. Start tmux and press `prefix + I` to install the remaining plugins (`prefix + U` to update them later).
+tpm is cloned by the bootstrap. Start tmux and press `prefix + I` to install
+the remaining plugins (`prefix + U` to update them later).
 
 The status bar is a minimal theme, sourced by `tmux.conf` per the shared light/dark state (see [Theme switching](#theme-switching-lightdark)). `tokyonight_night.tmux` is copied from [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) (`extras/tmux/`); `basic_light.tmux` matches the Alacritty and Neovim themes of the same name. Both are plain config files, not plugins, so no install step is needed.
 
