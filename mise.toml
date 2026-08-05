@@ -16,9 +16,13 @@ run = "mise install"
 [tasks.tmux-plugins]
 run = '[ -d ~/.config/tmux/plugins/tpm ] || git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm'
 
+# native installer; self-updates, so no version to pin
+[tasks.claude]
+run = '[ -x "$HOME/.local/bin/claude" ] || curl -fsSL https://claude.ai/install.sh | bash'
+
 [tasks.bootstrap]
 description = "server profile: config + tools"
-depends = ["tools", "tmux-plugins"]
+depends = ["tools", "tmux-plugins", "claude"]
 run = "mise doctor >/dev/null"
 
 [tasks.stow-desktop]
