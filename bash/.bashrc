@@ -20,6 +20,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+[ -r "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
+
 for f in "$HOME"/.config/shell/*.sh; do
   [ -r "$f" ] && . "$f"
 done
