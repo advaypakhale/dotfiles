@@ -304,6 +304,12 @@ local servers = {
     others = {},
 }
 
+-- mason's clangd ships llvm.org x86_64-only binaries; arm64 uses the distro package
+if vim.uv.os_uname().machine == "aarch64" then
+    servers.others.clangd = servers.mason.clangd
+    servers.mason.clangd = nil
+end
+
 -- Ensure the servers and tools above are installed
 --  To check the current status of installed tools and/or manually install
 --  other tools, you can run

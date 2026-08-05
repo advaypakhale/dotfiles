@@ -2,6 +2,7 @@
 # nightly for built-in autoread filewatchers
 neovim = "nightly"
 node = "22"
+python = "3.12"
 ripgrep = "latest"
 fd = "latest"
 fzf = "latest"
