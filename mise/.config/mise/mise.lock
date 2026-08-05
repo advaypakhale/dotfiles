@@ -176,10 +176,6 @@ url = "https://nodejs.org/dist/v22.23.2/node-v22.23.2-darwin-x64.tar.gz"
 checksum = "sha256:1177b4137ba5adaa56354ae40f1080c7450e8ae09cecb47da459d1c52ac99f97"
 url = "https://nodejs.org/dist/v22.23.2/node-v22.23.2-win-x64.zip"
 
-[[tools."npm:@anthropic-ai/claude-code"]]
-version = "2.1.222"
-backend = "npm:@anthropic-ai/claude-code"
-
 [[tools.ripgrep]]
 version = "15.2.0"
 backend = "aqua:BurntSushi/ripgrep"
