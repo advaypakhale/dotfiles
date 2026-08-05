@@ -1,4 +1,3 @@
-# repo tasks; entrypoints are `mise run bootstrap` and `mise run desktop`
 [tasks.stow]
 description = "symlink server config packages"
 run = """
@@ -19,15 +18,26 @@ run = '[ -d ~/.config/tmux/plugins/tpm ] || git clone --depth 1 https://github.c
 [tasks.claude]
 run = '[ -x "$HOME/.local/bin/claude" ] || curl -fsSL https://claude.ai/install.sh | bash'
 
+[tasks.agent-skills]
+description = "clone agent-skills and link it as ~/.claude/skills"
+run = "./scripts/install_agent_skills.sh"
+
 [tasks.bootstrap]
 description = "server profile: config + tools"
-depends = ["tools", "tmux-plugins", "claude"]
+depends = ["tools", "tmux-plugins", "claude", "agent-skills"]
 run = "mise doctor >/dev/null"
 
 [tasks.stow-desktop]
 run = "stow -R -t ~ alacritty xournalpp"
 
+[tasks.fonts]
+run = "./scripts/install_jetbrains_mono.sh"
+
 [tasks.desktop]
 description = "server profile plus laptop-only packages and fonts"
-depends = ["bootstrap", "stow-desktop"]
-run = "./scripts/install_jetbrains_mono.sh"
+depends = ["bootstrap", "stow-desktop", "fonts"]
+run = "true"
+
+[tasks.trackpoint]
+description = "thinkpad-only, uses sudo; not part of any profile"
+run = "./scripts/install_trackpoint.sh"

@@ -55,7 +55,7 @@ dependencies (node for Mason packages, ripgrep, fd, tree-sitter CLI).
 The terminal config uses JetBrains Mono Nerd Font. Install it with:
 
 ```
-./scripts/install_jetbrains_mono.sh
+mise run fonts
 ```
 
 This downloads the Nerd Font release into `~/.local/share/fonts` and refreshes the font cache (requires `curl` and `unzip`). Re-running it upgrades in place.
@@ -65,7 +65,7 @@ This downloads the Nerd Font release into `~/.local/share/fonts` and refreshes t
 Not a stow package; files install to system paths via the script:
 
 ```
-./scripts/install_trackpoint.sh
+mise run trackpoint
 ```
 
 A systemd service and sleep hook apply the hardware knobs (`sensitivity`,
@@ -121,7 +121,7 @@ without being wired into it.
 
 Skills live in [agent-skills](https://github.com/advaypakhale/agent-skills), a
 separate repository so they can be cloned without the rest of this one.
-`scripts/install_agent_skills.sh` clones it and symlinks it as
+The `agent-skills` bootstrap task clones it and symlinks it as
 `~/.claude/skills`.
 
 ## Xournal++
