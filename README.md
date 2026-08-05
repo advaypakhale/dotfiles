@@ -1,5 +1,7 @@
 # Advay's Dotfiles
 
+[![ci](https://github.com/advaypakhale/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/advaypakhale/dotfiles/actions/workflows/ci.yml)
+
 This repository contains many of my configurations for common tools that I use, including [alacritty](https://alacritty.org/), [neovim](https://neovim.io/), and [tmux](https://github.com/tmux/tmux/wiki).
 
 These are personal configurations, meant to only work on my personal machines. They are not configured for general use. If you want to proceed with using them, please be aware that things might break and require some head bashing to work. Nonetheless, there are some barebones neovim setup instructions if you do want to use my configuration.
