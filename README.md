@@ -111,6 +111,14 @@ settings only — machine-local `settings.local.json` is not tracked). Its `them
 is `auto`, which detects the terminal background, so it tracks the switcher
 without being wired into it.
 
+Skills live in [claude-skills](https://github.com/advaypakhale/claude-skills),
+a separate repository so they can be cloned without the rest of this one:
+
+```sh
+git clone https://github.com/advaypakhale/claude-skills ~/projects/claude-skills
+ln -s ~/projects/claude-skills ~/.claude/skills
+```
+
 ## Xournal++
 
 Configuration for [Xournal++](https://xournalpp.github.io/). Run `stow xournalpp -t ~`.
