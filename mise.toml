@@ -1,0 +1,30 @@
+# repo tasks; entrypoints are `mise run bootstrap` and `mise run desktop`
+[tasks.stow]
+description = "symlink server config packages"
+run = """
+if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
+  mv "$HOME/.bashrc" "$HOME/.bashrc.pre-dotfiles"
+fi
+stow -R -t ~ bash bin claude mise nvim tmux
+"""
+
+[tasks.tools]
+description = "install pinned tools from the stowed global config"
+depends = ["stow"]
+run = "mise install"
+
+[tasks.tmux-plugins]
+run = '[ -d ~/.config/tmux/plugins/tpm ] || git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm'
+
+[tasks.bootstrap]
+description = "server profile: config + tools"
+depends = ["tools", "tmux-plugins"]
+run = "mise doctor >/dev/null"
+
+[tasks.stow-desktop]
+run = "stow -R -t ~ alacritty xournalpp"
+
+[tasks.desktop]
+description = "server profile plus laptop-only packages and fonts"
+depends = ["bootstrap", "stow-desktop"]
+run = "./scripts/install_jetbrains_mono.sh"

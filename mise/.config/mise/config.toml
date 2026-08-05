@@ -1,0 +1,15 @@
+[tools]
+# nightly for built-in autoread filewatchers
+neovim = "nightly"
+node = "22"
+ripgrep = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+# 0.26+ prebuilts need glibc 2.39, too new for the 22.04 laptop
+tree-sitter = "0.25.10"
+
+[settings]
+# resolved versions + checksums pinned in mise.lock (stowed alongside)
+lockfile = true
