@@ -1,0 +1,5 @@
+# Claude Code writes credentials and session state into the stowed ~/.claude,
+# which resolves into this repo; settings.json is the only authored file.
+*
+!.gitignore
+!settings.json
