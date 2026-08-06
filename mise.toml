@@ -1,10 +1,13 @@
 [tasks.stow]
+# --no-folding: without it stow symlinks a whole directory when the target does
+# not exist, so ~/.local/bin and ~/.claude become the repo and anything an
+# installer writes there lands in git.
 description = "symlink server config packages"
 run = """
 if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   mv "$HOME/.bashrc" "$HOME/.bashrc.pre-dotfiles"
 fi
-stow -R -t ~ bash bin claude git mise nvim tmux
+stow -R --no-folding -t ~ bash bin claude git mise nvim tmux
 """
 
 [tasks.tools]
@@ -28,7 +31,7 @@ depends = ["tools", "tmux-plugins", "claude", "agent-skills"]
 run = "mise doctor >/dev/null"
 
 [tasks.stow-desktop]
-run = "stow -R -t ~ alacritty xournalpp"
+run = "stow -R --no-folding -t ~ alacritty xournalpp"
 
 [tasks.fonts]
 run = "./scripts/install_jetbrains_mono.sh"

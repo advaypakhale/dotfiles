@@ -25,7 +25,11 @@ Machine-local shell config goes in `~/.config/shell/local.sh` (untracked).
 ## GNU Stow
 The repository uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink
 management; the `stow` task in `mise.toml` runs it. To manage a single package
-manually: `stow <tool> -t ~`.
+manually: `stow --no-folding <tool> -t ~`.
+
+`--no-folding` is not optional. Without it, stow symlinks a whole directory
+whenever the target does not exist yet, so `~/.local/bin` and `~/.claude` become
+this repository and anything an installer or app writes there lands in git.
 
 ### Structure
 The repository structure is set up to have the tool name as a top-level directory:
@@ -105,7 +109,7 @@ theme dark     # force dark
 theme status   # print current mode
 ```
 
-Setup (own stow package): `stow bin -t ~`, then `theme dark` once to create
+Setup (own stow package): `stow --no-folding bin -t ~`, then `theme dark` once to create
 `~/.config/theme/`. Alacritty repaints live via `live_config_reload`; Neovim
 watches the state file; tmux is re-sourced and redrawn by the script (it won't
 follow on its own). All switch without a restart. To swap the light half, edit
@@ -116,7 +120,7 @@ Claude Code follows along on its own — see [Claude Code](#claude-code).
 
 ## Claude Code
 
-`stow claude -t ~` symlinks `~/.claude/settings.json` (shared, non-secret
+`stow --no-folding claude -t ~` symlinks `~/.claude/settings.json` (shared, non-secret
 settings only — machine-local `settings.local.json` is not tracked). Its `theme`
 is `auto`, which detects the terminal background, so it tracks the switcher
 without being wired into it.
@@ -128,7 +132,7 @@ The `agent-skills` bootstrap task clones it and symlinks it as
 
 ## Xournal++
 
-Configuration for [Xournal++](https://xournalpp.github.io/). Run `stow xournalpp -t ~`.
+Configuration for [Xournal++](https://xournalpp.github.io/). Run `stow --no-folding xournalpp -t ~`.
 
 ## Acknowledgements
 
