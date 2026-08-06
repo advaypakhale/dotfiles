@@ -7,6 +7,7 @@ ripgrep = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
+lazygit = "latest"
 # 0.26+ prebuilts need glibc 2.39, too new for the 22.04 laptop
 tree-sitter = "0.25.10"
 
