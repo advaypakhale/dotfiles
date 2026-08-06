@@ -4,7 +4,7 @@ run = """
 if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   mv "$HOME/.bashrc" "$HOME/.bashrc.pre-dotfiles"
 fi
-stow -R -t ~ bash bin claude mise nvim tmux
+stow -R -t ~ bash bin claude git mise nvim tmux
 """
 
 [tasks.tools]
