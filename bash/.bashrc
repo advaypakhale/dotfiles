@@ -25,4 +25,3 @@ fi
 for f in "$HOME"/.config/shell/*.sh; do
   [ -r "$f" ] && . "$f"
 done
-[ -r "$HOME/.config/shell/local.sh" ] || true
