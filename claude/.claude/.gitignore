@@ -1,5 +1,5 @@
-# Claude Code writes credentials and session state into the stowed ~/.claude,
-# which resolves into this repo; settings.json is the only authored file.
+# Without --no-folding, stow makes ~/.claude this directory, and Claude Code's
+# credentials and session state would land in the repo.
 *
 !.gitignore
 !settings.json
