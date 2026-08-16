@@ -14,5 +14,6 @@ one code path. `mise run bootstrap` (server) or `mise run desktop`.
 - Stow packages only contain files I author; mutable app state stays
   untracked.
 - Load the `no-crap-docs` skill before writing docs, comments, or commits.
-  Conventional Commits, no attribution footers.
+  Conventional Commits, no attribution footers. Subject only, unless the
+  change needs a why the subject can't carry.
 - Discuss first; implement only after explicit approval.
