@@ -16,6 +16,10 @@ require "options"
 -- [[ Basic Keymaps ]]
 require "keymaps"
 
+-- [[ Neovim's own toolchain ]]
+-- Before plugins, so Mason and nvim-treesitter can find node/python/tree-sitter.
+require "tools"
+
 -- [[ Install and configure plugins ]] (via built-in vim.pack)
 require "plugins"
 

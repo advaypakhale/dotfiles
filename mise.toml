@@ -11,9 +11,13 @@ stow -R --no-folding -t ~ bash bin claude git mise nvim tmux
 """
 
 [tasks.tools]
-description = "install pinned tools from the stowed global config"
+description = "install pinned tools from the stowed global and neovim configs"
 depends = ["stow"]
-run = "mise install"
+run = """
+mise install
+# rquickjs-sys runs bindgen, which finds no stdbool.h without gcc's headers.
+BINDGEN_EXTRA_CLANG_ARGS="-I$(cc -print-file-name=include)" mise -C ~/.config/nvim install
+"""
 
 [tasks.tmux-plugins]
 run = '[ -d ~/.config/tmux/plugins/tpm ] || git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm'

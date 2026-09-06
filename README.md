@@ -48,8 +48,21 @@ dotfiles/
 
 ## Neovim
 
-Installed by the bootstrap (nightly channel, via mise) along with its
-dependencies (node for Mason packages, ripgrep, fd, tree-sitter CLI).
+Installed by the bootstrap (nightly channel, via mise), along with ripgrep and
+fd.
+
+Neovim's own toolchain — node for Mason's npm servers, python for its pypi
+venvs, the tree-sitter CLI for parsers — is pinned separately in
+`nvim/.config/nvim/mise.toml`, and `lua/tools.lua` puts it on Neovim's PATH
+alone. A login shell never sees it, so the pinned python3.12 cannot shadow the
+system 3.10 that ROS Humble is built against. Inside Neovim it takes
+precedence, `:terminal` included: Mason builds a pypi package's venv with the
+first `python3` on PATH and fails outright if that one has no venv module.
+
+The tree-sitter CLI is built from source, with rust pinned alongside it:
+nvim-treesitter requires 0.26.1 or newer, and those prebuilts need glibc 2.39
+against the laptop's 2.35. The `tools` task sets `BINDGEN_EXTRA_CLANG_ARGS` so
+rquickjs-sys can find `stdbool.h` during that build.
 
 1. Start neovim with `nvim`. Packages and LSPs download automatically on first
    start.

@@ -1,0 +1,8 @@
+# Scoped to Neovim (lua/tools.lua reads it); on a login PATH this python would
+# shadow the system 3.10 that ROS Humble is built against.
+[tools]
+node = "22"
+python = "3.12"
+# No prebuilt CLI links against glibc 2.35; nvim-treesitter needs >= 0.26.1.
+rust = "latest"
+"cargo:tree-sitter-cli" = "0.26.13"

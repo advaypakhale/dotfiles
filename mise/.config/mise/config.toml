@@ -1,15 +1,13 @@
 [tools]
 # nightly for built-in autoread filewatchers
 neovim = "nightly"
-node = "22"
-python = "3.12"
 ripgrep = "latest"
 fd = "latest"
-fzf = "latest"
 gh = "latest"
 lazygit = "latest"
-# 0.26+ prebuilts need glibc 2.39, too new for the 22.04 laptop
-tree-sitter = "0.25.10"
+
+# Neovim's toolchain lives in nvim/.config/nvim/mise.toml: on the login PATH
+# its python would shadow the system 3.10 that ROS Humble is built against.
 
 [settings]
 # resolved versions + checksums pinned in mise.lock (stowed alongside)

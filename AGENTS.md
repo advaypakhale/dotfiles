@@ -8,7 +8,10 @@ one code path. `mise run bootstrap` (server) or `mise run desktop`.
   ansible repo, which calls this one and is never called by it.
 - Prerequisites (git, curl, stow, a compiler) are the machine's job.
 - Tools are pinned in `mise/.config/mise/config.toml` + `mise.lock`; nvim
-  stays on nightly. Claude Code installs via the native installer, not npm.
+  stays on nightly. Neovim's own toolchain (node, python, and a source-built
+  tree-sitter CLI) is pinned in `nvim/.config/nvim/mise.toml` instead, so it
+  stays off the login PATH. Claude Code installs via the native installer,
+  not npm.
 - All setup is mise tasks in `mise.toml`; scripts under `scripts/` are task
   bodies, never invoked directly in docs.
 - Stow packages only contain files I author; mutable app state stays

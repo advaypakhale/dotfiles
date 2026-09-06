@@ -1,10 +1,7 @@
 -- Highlight, edit, and navigate code.
 --
--- nvim-treesitter `main` branch (the rewrite). Parsers are installed via
--- `install()`, and highlighting/indentation are enabled per buffer via a
--- FileType autocmd. Compiling parsers needs the `tree-sitter` CLI + a C
--- compiler (see scripts/install_nvim.sh). Parser updates run from the
--- `PackChanged` hook (`:TSUpdate`) in `lua/plugins/init.lua`.
+-- nvim-treesitter `main` branch. Compiling parsers needs the `tree-sitter`
+-- CLI (../../mise.toml) + a C compiler.
 
 local ts = require "nvim-treesitter"
 

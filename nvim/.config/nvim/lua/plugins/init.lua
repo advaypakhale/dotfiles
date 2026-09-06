@@ -53,7 +53,7 @@ vim.pack.add({
     "https://github.com/folke/trouble.nvim",
 
     -- Tree-sitter (`main` branch, the default). Compiles parsers via the
-    -- `tree-sitter` CLI + a C compiler (installed by scripts/install_nvim.sh).
+    -- `tree-sitter` CLI (../../mise.toml) + a C compiler.
     "https://github.com/nvim-treesitter/nvim-treesitter",
 
     -- LSP + completion
