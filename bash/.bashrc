@@ -25,3 +25,7 @@ fi
 for f in "$HOME"/.config/shell/*.sh; do
   [ -r "$f" ] && . "$f"
 done
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/advay/.local/bin:$PATH"

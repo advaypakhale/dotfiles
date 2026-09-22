@@ -5,8 +5,14 @@
     "enabled": true,
     "mode": "hold"
   },
+  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "promptSuggestionEnabled": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
 }

@@ -1,3 +1,11 @@
 [user]
 	name = advaypakhale
 	email = advay.pakhale@gmail.com
+[merge]
+	tool = codediff
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff --exit-on-close merge \\\"$MERGED\\\"\"
+[diff]
+	tool = codediff
+[difftool "codediff"]
+	cmd = "if [ -d \"$LOCAL\" ]; then nvim -c \"CodeDiff --exit-on-close dir $LOCAL $REMOTE\"; else nvim \"$LOCAL\" \"$REMOTE\" -c \"CodeDiff --exit-on-close file $LOCAL $REMOTE\"; fi"
