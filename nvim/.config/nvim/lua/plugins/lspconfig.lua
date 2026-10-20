@@ -301,7 +301,9 @@ local servers = {
     },
 
     -- This table contains config for all language servers that are *not* installed via Mason.
-    others = {},
+    others = {
+        rust_analyzer = {},
+    },
 }
 
 -- mason's clangd ships llvm.org x86_64-only binaries; arm64 uses the distro package
