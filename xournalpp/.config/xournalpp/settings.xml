@@ -233,6 +233,10 @@
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
+    <data name="Wayland Wheel Scrolling">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
   </data>
   <data name="tools">
     <attribute name="current" type="string" value="pen"/>
