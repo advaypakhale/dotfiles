@@ -1,0 +1,19 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-style = Medium
+font-size = 12
+
+cursor-style-blink = false
+# Shell integration otherwise switches to a bar cursor at the prompt.
+shell-integration-features = no-cursor
+
+# Follows GNOME's dark/light setting, which the `theme` script flips.
+theme = light:basic_light,dark:TokyoNight Night
+
+background-opacity = 0.95
+window-padding-x = 25
+window-padding-y = 25
+
+gtk-titlebar = false
+
+# Remote hosts usually lack xterm-ghostty terminfo.
+term = xterm-256color

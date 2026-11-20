@@ -12,7 +12,7 @@ These are personal configurations, meant to only work on my personal machines. T
 sudo apt install stow
 curl https://mise.run | sh
 mise run bootstrap    # server profile: bash, bin, claude, mise, nvim, tmux
-mise run desktop      # adds alacritty, xournalpp, fonts
+mise run desktop      # adds alacritty, ghostty, xournalpp, fonts
 ```
 
 Both tasks are safe to rerun; run `bootstrap` again after pulling changes.
@@ -103,7 +103,7 @@ The status bar is a minimal theme, sourced by `tmux.conf` per the shared light/d
 
 ## Theme switching (light/dark)
 
-The `theme` command flips Alacritty, Neovim, and tmux between dark and light
+The `theme` command flips Alacritty, Ghostty, Neovim, and tmux between dark and light
 together, via a shared state file at `~/.config/theme/mode`.
 
 - **Dark** is TokyoNight Night.
@@ -125,8 +125,9 @@ theme status   # print current mode
 Setup (own stow package): `stow --no-folding bin -t ~`, then `theme dark` once to create
 `~/.config/theme/`. Alacritty repaints live via `live_config_reload`; Neovim
 watches the state file; tmux is re-sourced and redrawn by the script (it won't
-follow on its own). All switch without a restart. To swap the light half, edit
-two places: the `[light]` entries in `bin/.local/bin/theme` and `schemes.light`
+follow on its own). Ghostty follows GNOME's color scheme, which the script
+sets with `gsettings`; its light theme is in `ghostty/.config/ghostty/themes/`.
+All switch without a restart. To swap the light half, edit two places: the `[light]` entries in `bin/.local/bin/theme` and `schemes.light`
 in `nvim/.config/nvim/lua/theme.lua`.
 
 Claude Code follows along on its own — see [Claude Code](#claude-code).

@@ -35,7 +35,7 @@ depends = ["tools", "tmux-plugins", "claude", "agent-skills"]
 run = "mise doctor >/dev/null"
 
 [tasks.stow-desktop]
-run = "stow -R --no-folding -t ~ alacritty xournalpp"
+run = "stow -R --no-folding -t ~ alacritty ghostty xournalpp"
 
 [tasks.fonts]
 run = "./scripts/install_jetbrains_mono.sh"
