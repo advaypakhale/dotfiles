@@ -5,6 +5,7 @@ ripgrep = "latest"
 fd = "latest"
 gh = "latest"
 lazygit = "latest"
+uv = "latest"
 
 # Neovim's toolchain lives in nvim/.config/nvim/mise.toml: on the login PATH
 # its python would shadow the system 3.10 that ROS Humble is built against.
