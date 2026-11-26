@@ -9,3 +9,8 @@
 	tool = codediff
 [difftool "codediff"]
 	cmd = "if [ -d \"$LOCAL\" ]; then nvim -c \"CodeDiff --exit-on-close dir $LOCAL $REMOTE\"; else nvim \"$LOCAL\" \"$REMOTE\" -c \"CodeDiff --exit-on-close file $LOCAL $REMOTE\"; fi"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
