@@ -4,10 +4,12 @@
 # installer writes there lands in git.
 description = "symlink server config packages"
 run = """
-if [ -f "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
-  mv "$HOME/.bashrc" "$HOME/.bashrc.pre-dotfiles"
-fi
-stow -R --no-folding -t ~ bash bin claude git mise nvim tmux
+for f in .bashrc .config/fish/config.fish; do
+  if [ -f "$HOME/$f" ] && [ ! -L "$HOME/$f" ]; then
+    mv "$HOME/$f" "$HOME/$f.pre-dotfiles"
+  fi
+done
+stow -R --no-folding -t ~ bash bin claude fish git mise nvim tmux
 """
 
 [tasks.tools]

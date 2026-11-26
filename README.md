@@ -11,7 +11,7 @@ These are personal configurations, meant to only work on my personal machines. T
 ```
 sudo apt install stow
 curl https://mise.run | sh
-mise run bootstrap    # server profile: bash, bin, claude, mise, nvim, tmux
+mise run bootstrap    # server profile: bash, bin, claude, fish, mise, nvim, tmux
 mise run desktop      # adds alacritty, ghostty, xournalpp, fonts
 ```
 
@@ -143,6 +143,13 @@ Skills live in [agent-skills](https://github.com/advaypakhale/agent-skills), a
 separate repository so they can be cloned without the rest of this one.
 The `agent-skills` bootstrap task clones it and symlinks it as
 `~/.claude/skills`.
+
+## Fish
+
+`fish/.config/fish/config.fish` sets the same environment and aliases as the
+bash package and activates mise. On CachyOS it also sources the distro's
+defaults from `/usr/share/cachyos-fish-config/`. Like `~/.bashrc`, an unmanaged
+`config.fish` is moved to `config.fish.pre-dotfiles`.
 
 ## Xournal++
 
